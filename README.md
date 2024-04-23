@@ -1,4 +1,8 @@
 
+#About
+
+This is a fork of the Academic Pages. Just a basic homepage for now really.
+
 # Academic Pages
 
 ![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
