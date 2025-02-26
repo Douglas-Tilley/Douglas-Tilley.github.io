@@ -7,16 +7,53 @@ redirect_from:
   - /about.html
 ---
 
-Hey! I am Doug Tilley and I am a second year PhD Candidate in the Accountable, Responsible and Transparent Artificial Intelligence Centre for Doctoral Training at the University of Bath, UK. I am supervised by Dr Uriel Martinez-Hernandez on Human-Robot Collaboration. Before starting my PhD, I worked at the University of Bath on UAV's for Meteorological research examining the microelectrical properties of clouds.
+Hi, I’m **Doug Tilley**, a third-year PhD candidate at the Accountable, Responsible and Transparent Artificial Intelligence Centre for Doctoral Training, University of Bath, UK. Under the supervision of **Dr. Uriel Martinez-Hernandez**, my research focuses on human-robot collaboration. Before embarking on my PhD journey, I contributed to meteorological research at the University of Bath, where I worked on UAVs to study the microelectrical properties of clouds.
 
-I previously obtained my Integrated Master's in Robotics from Plymouth University, working on Sensor Fusion and Multimodal Perception for Robotic Control. 
+=============
+## Education
 
-Research
-======
-I am a multidisciplinary robotics researcher which leads to a wide and varied range of interests in the fields of Machine Learning and Robotics. I specialise in Lightweight Neural Networks and hierarchical representation for control of soft wearable robots. My current research focuses around development of wearable exoskeletons for Postural Transitions in Stroke patients.
+- **PhD Candidate, Artificial Intelligence**  
+  *University of Bath, UK*  
+  - **Focus:** Human-Robot Collaboration  
+  - **Current Research:** Developing soft wearable exoskeletons to assist postural transitions in stroke patients.
 
-I also have a keen interest in UAV related research and Brain-Computer Interface research.
+- **Integrated Master’s in Robotics**  
+  *Plymouth University*  
+  - **Focus:** Sensor Fusion and Multimodal Perception for Robotic Control
 
-Extras
-======
-Outside of Academia, I have a wide range of hobby's. I mainly spend my time playing Field Hockey, Rock Climbing and tinkering with side projects.
+
+=============
+## Research Interests
+
+As a multidisciplinary robotics researcher, I am passionate about exploring a wide range of topics in machine learning and robotics. My areas of expertise include:
+
+- **Hierarchical Control of Soft Wearable Robots:** Creating innovative control strategies for next-generation wearable devices. (University of Bath)
+- **Human-Robot Collaboration:** Enhancing interactions between humans and robotic systems. (University of Bath)
+- **Lightweight Neural Networks:** Designing efficient models for constrained devices. (University of Bath)
+- **TinyML** Implementing complex Neural Networks on Edge Devices. (DotResearch Ltd)
+- **Computer Vision Architecture** Development of advanced efficient computer vision models. (DotResearch Ltd)
+- **UAV Design** Novel UAV deployment in extreme environments. (DotResearch Ltd)
+
+In addition to my primary focus, I also maintain a keen interest brain-computer interface technologies, Humanoid robots and VR/XR technologies.
+
+
+=============
+## Professional Experience
+
+I co-founded **DotResearch Ltd**, a company that combines wildlife videography with conservation efforts. At DotResearch, we harness computer vision, TinyML, and novel sensor development to support and advance wildlife conservation.
+
+During my research internship at the **National Institute for Informatics, Tokyo**, I conducted research into neuromorphic architectures, explainable generative models, and neural network optimizers. My work focused on leveraging biological principles to develop more efficient and interpretable AI models, and I collaborated with a diverse team of researchers to push the boundaries of neural computation.
+
+At **Tianjin University**, I led a multimodal research study involving 25 participants using 6 different sensor modalities to monitor human ambulatory modes. This project provided significant insights into the integration of diverse sensor data to understand human mobility and contributed to the development of advanced wearable and assistive technologies.
+
+
+=============
+## Personal Interests
+
+Outside academia, I enjoy a variety of hobbies, including:
+
+- **Field Hockey**
+- **Rock Climbing**
+- **3D Printing and Prototype Development**
+
+I continuously seek out new challenges and opportunities to blend my passion for technology with real-world applications.
