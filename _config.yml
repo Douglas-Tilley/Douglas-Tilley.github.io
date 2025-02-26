@@ -8,9 +8,9 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Douglas Tilley"
+title                    : "Doug Tilley"
 title_separator          : "-"
-name                     : &name "Douglas Tilley"
+name                     : &name "Doug Tilley"
 description              : &description "personal description"
 url                      : https://douglas-tilley.github.io/ # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
