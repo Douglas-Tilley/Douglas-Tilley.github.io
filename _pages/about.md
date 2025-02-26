@@ -9,7 +9,6 @@ redirect_from:
 
 Hi, I’m **Doug Tilley**, a third-year PhD candidate at the Accountable, Responsible and Transparent Artificial Intelligence Centre for Doctoral Training, University of Bath, UK. Under the supervision of **Dr. Uriel Martinez-Hernandez**, my research focuses on human-robot collaboration. Before embarking on my PhD journey, I contributed to meteorological research at the University of Bath, where I worked on UAVs to study the microelectrical properties of clouds.
 
-=============
 ## Education
 
 - **PhD Candidate, Artificial Intelligence**  
@@ -22,7 +21,6 @@ Hi, I’m **Doug Tilley**, a third-year PhD candidate at the Accountable, Respon
   - **Focus:** Sensor Fusion and Multimodal Perception for Robotic Control
 
 
-=============
 ## Research Interests
 
 As a multidisciplinary robotics researcher, I am passionate about exploring a wide range of topics in machine learning and robotics. My areas of expertise include:
@@ -37,7 +35,6 @@ As a multidisciplinary robotics researcher, I am passionate about exploring a wi
 In addition to my primary focus, I also maintain a keen interest brain-computer interface technologies, Humanoid robots and VR/XR technologies.
 
 
-=============
 ## Professional Experience
 
 I co-founded **DotResearch Ltd**, a company that combines wildlife videography with conservation efforts. At DotResearch, we harness computer vision, TinyML, and novel sensor development to support and advance wildlife conservation.
@@ -47,7 +44,6 @@ During my research internship at the **National Institute for Informatics, Tokyo
 At **Tianjin University**, I led a multimodal research study involving 25 participants using 6 different sensor modalities to monitor human ambulatory modes. This project provided significant insights into the integration of diverse sensor data to understand human mobility and contributed to the development of advanced wearable and assistive technologies.
 
 
-=============
 ## Personal Interests
 
 Outside academia, I enjoy a variety of hobbies, including:

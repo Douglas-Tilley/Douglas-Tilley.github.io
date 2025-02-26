@@ -21,7 +21,7 @@ repository               : "douglas-tilley.github.io/"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "bio-photo-3.jpeg"
   name             : "Doug Tilley"
   pronouns         : # "he/him"
   bio              : "PhD Candidate in Artificial Intelligence at the University of Bath"
