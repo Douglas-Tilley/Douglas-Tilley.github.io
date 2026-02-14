@@ -519,11 +519,6 @@
       );
       ctx.stroke();
 
-      var targetPoint = project(target, width, height);
-      ctx.fillStyle = theme.target || "#3fd5ff";
-      ctx.beginPath();
-      ctx.arc(targetPoint.x, targetPoint.y, 4.2, 0, Math.PI * 2);
-      ctx.fill();
     }
 
     function animate(timeMs) {
@@ -637,7 +632,6 @@
     var linkColor = colors.link || "#f0f3fb";
     var jointColor = colors.joint || "#ff934d";
     var effectorColor = colors.effector || "#1a2638";
-    var targetColor = colors.target || "#3fd5ff";
 
     var group = new THREE.Group();
     scene.add(group);
@@ -739,18 +733,6 @@
     gripperGroup.add(fingerRight);
     group.add(gripperGroup);
 
-    var targetMarker = new THREE.Mesh(
-      new THREE.SphereGeometry(0.045, 16, 16),
-      new THREE.MeshStandardMaterial({
-        color: targetColor,
-        emissive: targetColor,
-        emissiveIntensity: 0.28,
-        roughness: 0.18,
-        metalness: 0.3,
-      })
-    );
-    group.add(targetMarker);
-
     return {
       mode: "primitive",
       group: group,
@@ -758,7 +740,6 @@
       jointMeshes: jointMeshes,
       servoMeshes: servoMeshes,
       gripperGroup: gripperGroup,
-      targetMarker: targetMarker,
       dispose: function () {
         group.traverse(function (node) {
           if (!node.isMesh) {
@@ -892,18 +873,6 @@
         var cadGroup = new THREE.Group();
         cadGroup.add(robot);
 
-        var targetColor = theme.target || "#3fd5ff";
-        var targetMarker = new THREE.Mesh(
-          new THREE.SphereGeometry(0.06, 16, 16),
-          new THREE.MeshStandardMaterial({
-            color: targetColor,
-            emissive: targetColor,
-            emissiveIntensity: 0.3,
-            roughness: 0.2,
-            metalness: 0.28,
-          })
-        );
-        cadGroup.add(targetMarker);
         scene.add(cadGroup);
 
         var jointNamesConfig = modelConfig.joint_names || {};
@@ -944,7 +913,6 @@
           mode: "cad",
           group: cadGroup,
           robot: robot,
-          targetMarker: targetMarker,
           jointNames: jointNames,
           jointSigns: jointSigns,
           jointOffsets: jointOffsets,
@@ -1008,9 +976,6 @@
 
     if (activeVisual.mode === "cad") {
       if (activeVisual.ikMode === "urdf") {
-        if (activeVisual.targetMarker) {
-          activeVisual.targetMarker.position.set(target[0], target[1], target[2]);
-        }
         return;
       }
 
@@ -1028,9 +993,6 @@
         activeVisual.robot.setJointValue(jointName, angle);
       }
 
-      if (activeVisual.targetMarker) {
-        activeVisual.targetMarker.position.set(target[0], target[1], target[2]);
-      }
       return;
     }
 
@@ -1081,9 +1043,6 @@
       );
     }
 
-    if (activeVisual.targetMarker) {
-      activeVisual.targetMarker.position.set(target[0], target[1], target[2]);
-    }
   }
 
   function createCadFrameTransform(config) {
