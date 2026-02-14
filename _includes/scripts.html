@@ -1,4 +1,139 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
+<script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/animation-toggle.js' | relative_url }}" defer></script>
+
+{% if page.permalink == "/" or page.url == "/" %}
+  <script>
+    (function () {
+      "use strict";
+
+      var queue = [
+        {
+          key: "three",
+          cdn: "https://cdn.jsdelivr.net/npm/three@0.124.0/build/three.min.js",
+          local: "{{ '/assets/js/vendor/three/three.min.js' | relative_url }}",
+          ready: function () {
+            return Boolean(window.THREE && window.THREE.WebGLRenderer);
+          },
+        },
+        {
+          key: "stl-loader",
+          cdn: "https://cdn.jsdelivr.net/npm/three@0.124.0/examples/js/loaders/STLLoader.js",
+          local: "{{ '/assets/js/vendor/three/STLLoader.js' | relative_url }}",
+          ready: function () {
+            return Boolean(window.THREE && typeof window.THREE.STLLoader === "function");
+          },
+        },
+        {
+          key: "collada-loader",
+          cdn: "https://cdn.jsdelivr.net/npm/three@0.124.0/examples/js/loaders/ColladaLoader.js",
+          local: "{{ '/assets/js/vendor/three/ColladaLoader.js' | relative_url }}",
+          ready: function () {
+            return Boolean(window.THREE && typeof window.THREE.ColladaLoader === "function");
+          },
+        },
+        {
+          key: "urdf-loader",
+          local: "{{ '/assets/js/URDFLoader.js' | relative_url }}",
+          ready: function () {
+            return typeof window.URDFLoader === "function";
+          },
+        },
+        {
+          key: "ik-solver",
+          local: "{{ '/assets/js/so101-ik-solver.js' | relative_url }}",
+          ready: function () {
+            return Boolean(window.SO101IK);
+          },
+        },
+        {
+          key: "so101-hero",
+          local: "{{ '/assets/js/so101-hero-bg.js' | relative_url }}",
+        },
+      ];
+
+      function warn(message) {
+        if (window.console && typeof window.console.warn === "function") {
+          window.console.warn("[so101-hero-loader] " + message);
+        }
+      }
+
+      function injectScript(src, done) {
+        var script = document.createElement("script");
+        script.src = src;
+        script.async = false;
+        script.defer = true;
+        script.onload = function () {
+          done(true);
+        };
+        script.onerror = function () {
+          done(false);
+        };
+        document.head.appendChild(script);
+      }
+
+      function loadEntry(entry, done) {
+        if (entry.ready && entry.ready()) {
+          done();
+          return;
+        }
+
+        function verifyOrWarn(sourceName) {
+          if (entry.ready && !entry.ready()) {
+            warn("Loaded " + entry.key + " from " + sourceName + " but dependency check failed.");
+          }
+        }
+
+        if (entry.cdn) {
+          injectScript(entry.cdn, function (ok) {
+            if (ok) {
+              verifyOrWarn("cdn");
+              if (!entry.ready || entry.ready()) {
+                done();
+                return;
+              }
+            }
+
+            if (!entry.local) {
+              warn("Unable to load " + entry.key + " from CDN and no local fallback is configured.");
+              done();
+              return;
+            }
+
+            injectScript(entry.local, function (localOk) {
+              if (!localOk) {
+                warn("Unable to load local fallback for " + entry.key + ".");
+              } else {
+                verifyOrWarn("local fallback");
+              }
+              done();
+            });
+          });
+          return;
+        }
+
+        injectScript(entry.local, function (ok) {
+          if (!ok) {
+            warn("Unable to load local script for " + entry.key + ".");
+          } else {
+            verifyOrWarn("local");
+          }
+          done();
+        });
+      }
+
+      (function loadSequential(index) {
+        if (index >= queue.length) {
+          return;
+        }
+
+        loadEntry(queue[index], function () {
+          loadSequential(index + 1);
+        });
+      })(0);
+    })();
+  </script>
+{% endif %}
 
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}

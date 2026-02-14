@@ -1,0 +1,67 @@
+{% assign projects = site.data.profile.featured_projects %}
+
+<section class="home-section home-section--featured-projects">
+  <h2 class="home-section__title">{{ include.title | default: "Featured Projects" }}</h2>
+  {% if include.intro %}
+    <p class="home-section__intro">{{ include.intro }}</p>
+  {% endif %}
+
+  <div class="featured-project-grid">
+    {% for project in projects %}
+      {% assign image_url = project.image %}
+      {% if image_url contains "://" %}
+        {% assign image_href = image_url %}
+      {% else %}
+        {% assign image_href = image_url | relative_url %}
+      {% endif %}
+
+      <article class="featured-project-card">
+        <div class="featured-project-card__media">
+          <img src="{{ image_href }}" alt="{{ project.title }}">
+        </div>
+
+        <div class="featured-project-card__body">
+          <h3 class="featured-project-card__title">{{ project.title }}</h3>
+          <p class="featured-project-card__summary">{{ project.summary }}</p>
+
+          {% if project.links %}
+            <ul class="featured-project-card__links">
+              {% for link in project.links %}
+                {% assign link_url = link.url %}
+                {% if link_url contains "://" or link_url contains "mailto:" %}
+                  {% assign link_href = link_url %}
+                {% else %}
+                  {% assign link_href = link_url | relative_url %}
+                {% endif %}
+
+                {% assign link_type = link.type | downcase %}
+                {% if link_type == "github" %}
+                  {% assign icon_class = "fab fa-github" %}
+                {% elsif link_type == "linkedin" %}
+                  {% assign icon_class = "fab fa-linkedin" %}
+                {% elsif link_type == "website" %}
+                  {% assign icon_class = "fas fa-globe" %}
+                {% elsif link_type == "paper" %}
+                  {% assign icon_class = "fas fa-file-alt" %}
+                {% elsif link_type == "demo" %}
+                  {% assign icon_class = "fas fa-play-circle" %}
+                {% elsif link_type == "email" %}
+                  {% assign icon_class = "fas fa-envelope" %}
+                {% else %}
+                  {% assign icon_class = "fas fa-link" %}
+                {% endif %}
+
+                <li>
+                  <a href="{{ link_href }}" target="_blank" rel="noopener noreferrer" aria-label="{{ link.label | default: link.type }}">
+                    <i class="{{ icon_class }}" aria-hidden="true"></i>
+                    <span>{{ link.label | default: link.type }}</span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

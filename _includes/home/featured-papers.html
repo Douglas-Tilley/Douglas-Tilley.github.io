@@ -1,0 +1,20 @@
+{% assign papers = site.data.profile.featured_papers %}
+
+<section class="home-section home-section--papers">
+  <h2 class="home-section__title">{{ include.title | default: "Selected Papers and Writing" }}</h2>
+  {% if include.intro %}
+    <p class="home-section__intro">{{ include.intro }}</p>
+  {% endif %}
+
+  <div class="paper-grid">
+    {% for paper in papers %}
+      <article class="paper-card">
+        <p class="paper-card__meta">{{ paper.venue }} | {{ paper.year }}</p>
+        <h3 class="paper-card__title">
+          <a href="{{ paper.url }}" target="_blank" rel="noopener noreferrer">{{ paper.title }}</a>
+        </h3>
+        <p class="paper-card__summary">{{ paper.summary }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>

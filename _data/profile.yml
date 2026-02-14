@@ -1,0 +1,324 @@
+github:
+  username: "Douglas-Tilley"
+
+hero:
+  eyebrow: "PhD Researcher in AI and Robotics"
+  heading: "Doug Tilley"
+  role: "University of Bath | Human-Robot Collaboration | Founder at DotResearch"
+  summary: "I design and evaluate wearable and assistive robotics systems, with a focus on practical human-robot interaction, robust control, and efficient machine learning for deployment."
+  avatar: "/images/bio-photo-3.jpeg"
+  primary_cta:
+    label: "Explore Projects"
+    url: "/projects/"
+  secondary_cta:
+    label: "View Publications"
+    url: "/publications/"
+
+robot_hero:
+  enabled: true
+  force_interactive: true
+  desktop_min_width: 0
+  base_height: 0.3
+  arm_lengths:
+    - 1.25
+    - 1.08
+    - 0.9
+  base_position:
+    - 1.2
+    - 0.0
+    - 0.0
+  initial_angles_deg:
+    - 10
+    - 25
+    - -35
+    - 5
+  joint_limits_deg:
+    yaw:
+      - -178
+      - 178
+    shoulder:
+      - -110
+      - 110
+    elbow:
+      - -165
+      - 98
+    wrist:
+      - -140
+      - 140
+  ik:
+    iterations: 72
+    damping: 0.08
+    epsilon: 0.005
+    max_step_deg: 10.0
+    urdf_iterations: 36
+    urdf_damping: 0.18
+    urdf_epsilon: 0.03
+    urdf_max_step_deg: 7.0
+    analytic_seed_blend: 0.7
+    target_smoothing: 0.14
+    joint_smoothing: 0.12
+    refine_iterations: 8
+    refine_damping: 0.16
+    refine_max_step_deg: 3.2
+    self_collision_guard: true
+    elbow_preferred_sign: -1
+    elbow_min_abs_deg: 18
+    base_clearance_radius: 0.38
+    post_guard_refine_iterations: 5
+    clamp_workspace: false
+    tool_pitch_deg: -6
+  workspace:
+    radius: 4.2
+    min_radius: 1.2
+    min_x: -2.9
+    max_x: 2.9
+    min_y: 0.18
+    max_y: 2.7
+    min_z: -2.4
+    max_z: 2.4
+  camera:
+    fov: 38
+    near: 0.1
+    far: 20
+    position:
+      - 2.9
+      - 1.9
+      - 5.4
+    look_at:
+      - 1.0
+      - 1.05
+      - 0.0
+  interaction:
+    scope: "viewport"
+    hero_weight: 1.0
+    global_weight: 0.25
+    global_idle_damping: 0.92
+    pointer_plane_mode: "camera"
+    pointer_plane_offset: -2.5
+    mouse_plane_z: -2.5
+  gripper:
+    enabled: true
+    close_distance: 0.2
+    open_distance: 0.9
+    closed_angle_deg: -6
+    open_angle_deg: 34
+    smoothing: 0.3
+  model:
+    use_cad: true
+    ik_mode: "urdf"
+    urdf: "/assets/models/so101/so101_new_calib.urdf"
+    scale: 8.4
+    root_rotation_deg:
+      - -90
+      - 0
+      - 215
+    root_position:
+      - 3.5
+      - 0.0
+      - -0.25
+    joint_names:
+      yaw: "shoulder_pan"
+      shoulder: "shoulder_lift"
+      elbow: "elbow_flex"
+      wrist: "wrist_flex"
+      effector_frame: "gripper_frame_link"
+    joint_signs:
+      - 1
+      - -1
+      - -1
+      - -1
+    joint_offsets_deg:
+      - 0
+      - 90
+      - -5
+      - 0
+  theme:
+    link: "#f0f3fb"
+    joint: "#ff934d"
+    effector: "#1a2638"
+    target: "#3fd5ff"
+
+contact_links:
+  - type: "github"
+    label: "GitHub"
+    url: "https://github.com/Douglas-Tilley"
+  - type: "linkedin"
+    label: "LinkedIn"
+    url: "https://www.linkedin.com/in/douglas-tilley-uob2021phdart-ai/"
+  - type: "scholar"
+    label: "Google Scholar"
+    url: "https://scholar.google.com/citations?user=8uqfQlsAAAAJ&hl=en"
+  - type: "email"
+    label: "Email"
+    url: "mailto:djt49@bath.ac.uk"
+  - type: "website"
+    label: "DotResearch"
+    url: "https://www.dotresearch.co.uk/"
+
+organization_logos:
+  - label: "ART-AI"
+    image: "/images/logos/artai-logo.svg"
+    url: "https://cdt-art-ai.ac.uk/students/doug-tilley/"
+  - label: "DotResearch"
+    image: "/images/logos/dotresearch-logo.png"
+    url: "https://www.dotresearch.co.uk/"
+
+footer_awards:
+  - title: "Recognition Award 2024"
+    image: "/images/projects/recognition-2024.jpg"
+    url: ""
+  - title: "Recognition Award 2025"
+    image: "/images/projects/recognition-2025.jpg"
+    url: ""
+highlights:
+  - label: "Current Role"
+    value: "PhD Candidate in ART-AI, University of Bath"
+  - label: "Core Theme"
+    value: "Multimodal Deep Learning for Human-Robot Interaction"
+  - label: "Industry and Applied Work"
+    value: "TinyML, Robotics Simulation, Multimodal Learning, Optimization Wildlife Conservation"
+
+current_work:
+  - title: "Multimodal Human Activity Recognition"
+    description: "Hierarchical deep learning architectures integrating vision, biosignals, and motion capture for robust activity and postural transition recognition."
+    link_label: "Publications"
+    link_url: "https://scholar.google.com/citations?user=8uqfQlsAAAAJ&hl=en"
+  - title: "Neuromorphic and Explainable Architectures"
+    description: "Hybrid SNN-SSM architectures for explainable temporal modeling, with novel representation techniques with biologically plausible optimizers."
+    link_label: "Research Overview"
+    link_url: "/publications/"
+  - title: "Latent Analysis for Robotics actions and rewards"
+    description: "Mechanistic interpretability and Latent space representation methods applied to robotics domains, ongoing research at the National Institute of Informatics (NII), Tokyo."
+    link_label: "NII Collaboration"
+    link_url: "/publications/"
+  - title: "DotResearch — TinyML for Conservation"
+    description: "Co-founded startup deploying patent-pending embedded vision sensors for wildlife monitoring. Custom GenAI pipelines for domain adaptation, deployed across 3 countries in harsh environments."
+    link_label: "Visit DotResearch"
+    link_url: "https://www.dotresearch.co.uk/"
+  - title: "Soft Wearable Exoskeletons for Rehabilitation"
+    description: "Hierarchical control of soft wearable exoskeletons to assist postural transitions in stroke patients, integrating multimodal sensing with adaptive actuation."
+    link_label: "Publications"
+    link_url: "https://cdt-art-ai.ac.uk/students/doug-tilley/"
+
+education:
+  - degree: "PhD Candidate, Artificial Intelligence"
+    institution: "University of Bath, UK"
+    programme: "ART-AI Centre for Doctoral Training"
+    supervisor: "Dr. Uriel Martinez-Hernandez"
+    focus: "Human-Robot Collaboration, Multimodal Deep Learning"
+  - degree: "MEng Robotics (Integrated Master's)"
+    institution: "University of Plymouth, UK"
+    focus: "Sensor Fusion and Multimodal Perception for Robotic Control"
+    
+interests:
+  - title: "Multimodal Deep Learning"
+    description: "Hierarchical and fusion architectures integrating vision, language, and biosignal modalities for human-robot interaction."
+  - title: "Neuromorphic and Explainable AI"
+    description: "Spiking neural networks, hybrid SSM architectures, and interpretability methods for temporal and noisy data."
+  - title: "Optimizers and Training Dynamics"
+    description: "Novel optimizers for noisy and non-stationary loss landscapes, combining trajectory-aware adaptation with sharpness-aware methods."
+  - title: "Efficient AI for Edge and Embedded Systems"
+    description: "TinyML deployment, model compression, and custom architectures for resource-constrained platforms."
+  - title: "Field Robotics and Rapid Prototyping"
+    description: "UAV systems, sensor fusion, and end-to-end deployment from concept to validated field prototype."
+  - title: "Vision-Language-Action Models"
+    description: "Sim-to-real reinforcement learning and VLA architectures for embodied AI and manipulation tasks."
+
+featured_papers:
+  - title: "Google Scholar Profile"
+    year: "Active"
+    venue: "Complete Publication Record"
+    summary: "Full publication list, citation metrics, and co-author network."
+    url: "https://scholar.google.com/citations?user=8uqfQlsAAAAJ&hl=en"
+  - title: "Hierarchical Deep Learning for Human Activity Recognition Integrating Postural Transitions"
+    year: "2024"
+    venue: "IEEE Sensors Journal"
+    summary: "Hierarchical CNN-LSTM architecture for activity recognition with postural transition integration. Invited Best Paper of IEEE Sensors 2023."
+    url: "https://scholar.google.com/citations?user=8uqfQlsAAAAJ&hl=en"
+  - title: "BEATRIX: An Open Source Humanoid Head Platform"
+    year: "2024"
+    venue: "HardwareX"
+    summary: "Open-source humanoid head platform for robotics teaching and HRI research."
+    url: "https://scholar.google.com/citations?user=8uqfQlsAAAAJ&hl=en"
+  - title: "Ionic Charge Emission Into Fog From a Remotely Piloted Aircraft"
+    year: "2022"
+    venue: "Geophysical Research Letters"
+    summary: "Experimental study of ion release effects on fog droplet properties using an instrumented UAV with corona charge emitters."
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=8uqfQlsAAAAJ&citation_for_view=8uqfQlsAAAAJ:u-x6o8ySG0sC"
+
+previous_work:
+  - title: "UAV Atmospheric Sensing — University of Bath & University of Reading"
+    role: "Research Assistant"
+    description: "Designed, built, and integrated custom sensors into a high-altitude X8 UAS platform to measure microelectrical properties of clouds. Responsible for the full pipeline: sensor-flight system integration, custom ArduPilot firmware for safety systems, mission planning, drone piloting, and data analysis. Also presented findings on propeller electrostatic charge build-up at the Journal of Electrostatics."
+    link_label: "MetX8 Repository"
+    link_url: "https://github.com/Douglas-Tilley/MetX8"
+
+selected_repos:
+  - "NoisyOBS"
+  - "LaTrajAd"
+  - "GRL-Robotics"
+  - "snnssmPC"
+  - "HierETransform"
+  - "DotResearch"
+  - "MultiModHAR"
+  - "MistralAI_team8"
+
+fallback_repos:
+  - name: "NoisyOBS"
+    html_url: "https://github.com/Douglas-Tilley/optimizer-benchmark-suite"
+    description: "Noisy benchmark suite for optimizer evaluation under realistic, non-stationary conditions."
+    language: "Python"
+    stargazers_count: 0
+    status: "Ongoing PhD"
+  - name: "LaTrajAd"
+    html_url: "https://github.com/Douglas-Tilley/LaTrajAd_notebooks"
+    description: "Trajectory aware optimizer for training on noisy data."
+    language: "Jupyter Notebook"
+    stargazers_count: 0
+    status: "Ongoing NII"
+  - name: "GRL-Robotics"
+    html_url: "https://github.com/Douglas-Tilley/GRL_rebase"
+    description: "Mechanistic interpretability and Latent Space exploration for Robotics reward modelling"
+    language: "Python"
+    stargazers_count: 0
+    status: "Ongoing NII"
+  - name: "snnssmPC"
+    html_url: "https://github.com/Douglas-Tilley/Spiking_PC"
+    description: "Hybrid spiking neural network, state space model, and predictive coding architecture for explainable temporal modeling."
+    language: "Python"
+    stargazers_count: 0
+    status: "Ongoing Personal"
+  - name: "HierETransform"
+    html_url: "https://github.com/Douglas-Tilley/TJUStudyPipeline"
+    description: "Hierarchical entropy transformer for multimodal sensor processing."
+    language: "Python"
+    stargazers_count: 0
+    status: "Ongoing PhD"
+  - name: "DotResearch"
+    html_url: "https://github.com/Douglas-Tilley/DotWildV8Tiny"
+    description: "GenAI domain adaptation pipeline and TinyML computer vision for wildlife monitoring on edge devices."
+    language: "Python"
+    stargazers_count: 0
+    status: "Active Startup"
+  - name: "MultiModHAR"
+    html_url: "https://github.com/Douglas-Tilley/TJUxUoB_har"
+    description: "Multimodal human activity recognition dataset combining vision, IMU, and biosignal modalities."
+    language: "Python"
+    stargazers_count: 0
+    status: "Ongoing PhD"
+  - name: "MistralAI_team8"
+    html_url: "https://github.com/Douglas-Tilley/MistralAI_team8"
+    description: "HuggingFace x Mistral AI hackathon project."
+    language: "Python"
+    stargazers_count: 0
+    status: "Hackathon"
+  - name: "Douglas-Tilley.github.io"
+    html_url: "https://github.com/Douglas-Tilley/Douglas-Tilley.github.io"
+    description: "Personal academic website and portfolio."
+    language: "JavaScript"
+    stargazers_count: 0
+
+external_contributions:
+  - name: "Robotics-Ark"
+    html_url: "https://github.com/Robotics-Ark/"
+    description: "Collaborative robotics organization. Contributed to ark_franka (Franka manipulation) and ark_framework, including adding the Nvidia Newton simulation backend."

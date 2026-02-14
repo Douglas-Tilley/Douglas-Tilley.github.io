@@ -1,3 +1,99 @@
 <!-- start custom footer snippets -->
-<a href="/sitemap/">Sitemap</a>
+<div class="site-footer-strip">
+  <p class="site-footer-strip__name">Doug Tilley</p>
+  <ul class="site-footer-strip__links">
+    {% for item in site.data.profile.contact_links %}
+      {% assign footer_url = item.url %}
+      {% assign link_type = item.type | downcase %}
+      {% if footer_url contains "://" or footer_url contains "mailto:" %}
+        {% assign footer_href = footer_url %}
+      {% else %}
+        {% assign footer_href = footer_url | relative_url %}
+      {% endif %}
+
+      {% if link_type == "github" %}
+        {% assign icon_class = "fab fa-github" %}
+      {% elsif link_type == "linkedin" %}
+        {% assign icon_class = "fab fa-linkedin" %}
+      {% elsif link_type == "scholar" %}
+        {% assign icon_class = "ai ai-google-scholar-square" %}
+      {% elsif link_type == "email" %}
+        {% assign icon_class = "fas fa-envelope" %}
+      {% elsif link_type == "website" %}
+        {% assign icon_class = "fas fa-globe" %}
+      {% else %}
+        {% assign icon_class = "fas fa-link" %}
+      {% endif %}
+
+      <li>
+        {% if footer_href contains "mailto:" %}
+          <a href="{{ footer_href }}">
+        {% else %}
+          <a href="{{ footer_href }}" target="_blank" rel="noopener noreferrer">
+        {% endif %}
+            <i class="{{ icon_class }}" aria-hidden="true"></i>
+            <span>{{ item.label }}</span>
+          </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% assign has_logos = site.data.profile.organization_logos %}
+{% assign has_awards = site.data.profile.footer_awards %}
+{% if has_logos or has_awards %}
+  <div class="footer-image-row">
+    {% for logo in site.data.profile.organization_logos %}
+      {% assign logo_url = logo.url | default: "" %}
+      {% assign logo_image = logo.image %}
+      {% if logo_image contains "://" %}
+        {% assign logo_src = logo_image %}
+      {% else %}
+        {% assign logo_src = logo_image | relative_url %}
+      {% endif %}
+
+      {% if logo_url != "" %}
+        {% if logo_url contains "://" or logo_url contains "mailto:" %}
+          {% assign logo_href = logo_url %}
+        {% else %}
+          {% assign logo_href = logo_url | relative_url %}
+        {% endif %}
+        <a class="footer-image-card" href="{{ logo_href }}" target="_blank" rel="noopener noreferrer">
+          <img src="{{ logo_src }}" alt="{{ logo.label }}">
+        </a>
+      {% else %}
+        <div class="footer-image-card">
+          <img src="{{ logo_src }}" alt="{{ logo.label }}">
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {% for award in site.data.profile.footer_awards %}
+      {% assign award_url = award.url | default: "" %}
+      {% assign award_image = award.image %}
+      {% if award_image contains "://" %}
+        {% assign award_src = award_image %}
+      {% else %}
+        {% assign award_src = award_image | relative_url %}
+      {% endif %}
+
+      {% if award_url != "" %}
+        {% if award_url contains "://" or award_url contains "mailto:" %}
+          {% assign award_href = award_url %}
+        {% else %}
+          {% assign award_href = award_url | relative_url %}
+        {% endif %}
+        <a class="footer-image-card" href="{{ award_href }}" target="_blank" rel="noopener noreferrer">
+          <img src="{{ award_src }}" alt="{{ award.title }}">
+        </a>
+      {% else %}
+        <div class="footer-image-card">
+          <img src="{{ award_src }}" alt="{{ award.title }}">
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
+
+<script src="{{ '/assets/js/repos.js' | relative_url }}" defer></script>
 <!-- end custom footer snippets -->

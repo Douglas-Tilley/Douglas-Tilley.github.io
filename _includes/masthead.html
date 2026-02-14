@@ -3,20 +3,38 @@
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
-        <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ base_path }}/">{{ site.title }}</a></li>
+      <nav class="masthead-grid-nav" aria-label="Primary">
+        <ul class="masthead-grid-nav__side masthead-grid-nav__side--left">
           {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
+            {% assign nav_title = link.title | downcase %}
+            {% if nav_title == "home" or nav_title == "projects" %}
+              {% assign nav_url = link.url %}
+              {% if nav_url contains "://" or nav_url contains "mailto:" %}
+                {% assign nav_href = nav_url %}
               {% else %}
-              {% assign domain = base_path %}
+                {% assign nav_href = nav_url | relative_url %}
+              {% endif %}
+              <li class="masthead__menu-item"><a href="{{ nav_href }}">{{ link.title }}</a></li>
             {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
-        <ul class="hidden-links hidden"></ul>
+
+        <a class="masthead-grid-nav__brand" href="{{ base_path }}/">{{ site.title }}</a>
+
+        <ul class="masthead-grid-nav__side masthead-grid-nav__side--right">
+          {% for link in site.data.navigation.main %}
+            {% assign nav_title = link.title | downcase %}
+            {% if nav_title == "publications" or nav_title == "cv" %}
+              {% assign nav_url = link.url %}
+              {% if nav_url contains "://" or nav_url contains "mailto:" %}
+                {% assign nav_href = nav_url %}
+              {% else %}
+                {% assign nav_href = nav_url | relative_url %}
+              {% endif %}
+              <li class="masthead__menu-item"><a href="{{ nav_href }}">{{ link.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
       </nav>
     </div>
   </div>

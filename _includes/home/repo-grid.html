@@ -1,0 +1,24 @@
+{% assign section_id = include.section_id | default: "repo-section" %}
+{% assign max_items = include.max_items | default: 6 %}
+
+<section id="{{ section_id }}" class="home-section home-section--repos js-repo-section">
+  {% if include.title %}
+    <h2 class="home-section__title">{{ include.title }}</h2>
+  {% endif %}
+
+  {% if include.intro %}
+    <p class="home-section__intro">{{ include.intro }}</p>
+  {% endif %}
+
+  <p class="repo-grid__status js-repo-status">Loading repositories...</p>
+  <div class="repo-grid js-repo-grid" aria-live="polite"></div>
+
+  <script type="application/json" class="js-repo-config">
+    {
+      "username": {{ site.data.profile.github.username | jsonify }},
+      "selectedRepos": {{ site.data.profile.selected_repos | jsonify }},
+      "fallbackRepos": {{ site.data.profile.fallback_repos | jsonify }},
+      "maxItems": {{ max_items | jsonify }}
+    }
+  </script>
+</section>

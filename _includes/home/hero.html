@@ -1,0 +1,129 @@
+{% assign hero = site.data.profile.hero %}
+{% assign robot_hero = site.data.profile.robot_hero %}
+{% assign primary_url = hero.primary_cta.url %}
+{% assign secondary_url = hero.secondary_cta.url %}
+{% assign avatar = hero.avatar %}
+
+{% if primary_url contains "://" %}
+  {% assign primary_href = primary_url %}
+{% else %}
+  {% assign primary_href = primary_url | relative_url %}
+{% endif %}
+
+{% if secondary_url contains "://" %}
+  {% assign secondary_href = secondary_url %}
+{% else %}
+  {% assign secondary_href = secondary_url | relative_url %}
+{% endif %}
+
+{% if avatar contains "://" %}
+  {% assign avatar_href = avatar %}
+{% else %}
+  {% assign avatar_href = avatar | relative_url %}
+{% endif %}
+
+<section class="home-hero home-hero--robot-bg js-robot-hero">
+  <div class="home-hero__robot-layer js-robot-hero-layer" aria-hidden="true">
+    <div class="home-hero__robot-fallback"></div>
+  </div>
+
+  <div class="home-hero__controls">
+    <label class="home-hero__control-toggle home-hero__control-toggle--theme" for="site-theme-toggle-home">
+      <span class="home-hero__control-toggle-label">Dark theme</span>
+      <input
+        id="site-theme-toggle-home"
+        class="home-hero__control-toggle-input"
+        type="checkbox"
+        role="switch"
+        aria-label="Toggle dark theme"
+        data-theme-toggle
+      >
+      <span class="home-hero__control-toggle-track" aria-hidden="true"></span>
+    </label>
+
+    <label class="home-hero__control-toggle home-hero__control-toggle--animation" for="site-animation-toggle">
+      <span class="home-hero__control-toggle-label">Animations</span>
+      <input
+        id="site-animation-toggle"
+        class="home-hero__control-toggle-input"
+        type="checkbox"
+        role="switch"
+        aria-label="Toggle site animations"
+        data-animation-toggle
+      >
+      <span class="home-hero__control-toggle-track" aria-hidden="true"></span>
+    </label>
+  </div>
+
+  {% if robot_hero and robot_hero.enabled %}
+    <script type="application/json" class="js-robot-hero-config">{{ robot_hero | jsonify }}</script>
+  {% endif %}
+
+  <div class="home-hero__identity">
+    <div class="home-hero__media">
+      <img class="home-hero__avatar" src="{{ avatar_href }}" alt="{{ hero.heading }}">
+    </div>
+
+    <div class="home-hero__inner">
+      <p class="home-hero__eyebrow">{{ hero.eyebrow }}</p>
+      <h1 class="home-hero__title">{{ hero.heading }}</h1>
+      <p class="home-hero__role">{{ hero.role }}</p>
+      <p class="home-hero__summary">{{ hero.summary }}</p>
+
+      <div class="home-hero__actions">
+        <a class="btn btn--primary home-cta home-cta--primary" href="{{ primary_href }}">{{ hero.primary_cta.label }}</a>
+        <a class="btn btn--inverse home-cta" href="{{ secondary_href }}">{{ hero.secondary_cta.label }}</a>
+      </div>
+
+      {% if site.data.profile.contact_links %}
+        <ul class="home-hero__links">
+          {% for item in site.data.profile.contact_links %}
+            {% assign link_url = item.url %}
+            {% assign link_type = item.type | downcase %}
+            {% if link_url contains "://" or link_url contains "mailto:" %}
+              {% assign link_href = link_url %}
+            {% else %}
+              {% assign link_href = link_url | relative_url %}
+            {% endif %}
+
+            {% if link_type == "github" %}
+              {% assign icon_class = "fab fa-github" %}
+            {% elsif link_type == "linkedin" %}
+              {% assign icon_class = "fab fa-linkedin" %}
+            {% elsif link_type == "scholar" %}
+              {% assign icon_class = "ai ai-google-scholar-square" %}
+            {% elsif link_type == "email" %}
+              {% assign icon_class = "fas fa-envelope" %}
+            {% elsif link_type == "website" %}
+              {% assign icon_class = "fas fa-globe" %}
+            {% else %}
+              {% assign icon_class = "fas fa-link" %}
+            {% endif %}
+
+            <li>
+              {% if link_href contains "mailto:" %}
+                <a href="{{ link_href }}">
+              {% else %}
+                <a href="{{ link_href }}" target="_blank" rel="noopener noreferrer">
+              {% endif %}
+                <i class="{{ icon_class }}" aria-hidden="true"></i>
+                <span>{{ item.label }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if site.data.profile.highlights %}
+    <ul class="home-hero__highlights">
+      {% for item in site.data.profile.highlights %}
+        <li class="home-highlight">
+          <span class="home-highlight__label">{{ item.label }}</span>
+          <span class="home-highlight__value">{{ item.value }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>

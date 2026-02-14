@@ -1,0 +1,26 @@
+{% assign work_items = site.data.profile.current_work %}
+
+<section class="home-section home-section--current">
+  <h2 class="home-section__title">{{ include.title | default: "What I am working on right now" }}</h2>
+  {% if include.intro %}
+    <p class="home-section__intro">{{ include.intro }}</p>
+  {% endif %}
+
+  <div class="current-work-grid">
+    {% for item in work_items %}
+      <article class="current-work-card">
+        <h3 class="current-work-card__title">{{ item.title }}</h3>
+        <p class="current-work-card__description">{{ item.description }}</p>
+        {% if item.link_url %}
+          {% assign work_url = item.link_url %}
+          {% if work_url contains "://" or work_url contains "mailto:" %}
+            {% assign work_href = work_url %}
+          {% else %}
+            {% assign work_href = work_url | relative_url %}
+          {% endif %}
+          <a class="current-work-card__link" href="{{ work_href }}" target="_blank" rel="noopener noreferrer">{{ item.link_label | default: "Learn more" }}</a>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>

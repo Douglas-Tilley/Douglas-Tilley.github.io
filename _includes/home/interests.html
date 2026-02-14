@@ -1,0 +1,17 @@
+{% assign interests = site.data.profile.interests %}
+
+<section class="home-section home-section--interests">
+  <h2 class="home-section__title">{{ include.title | default: "Interests" }}</h2>
+  {% if include.intro %}
+    <p class="home-section__intro">{{ include.intro }}</p>
+  {% endif %}
+
+  <div class="interest-grid">
+    {% for interest in interests %}
+      <article class="interest-card">
+        <h3 class="interest-card__title">{{ interest.title }}</h3>
+        <p class="interest-card__description">{{ interest.description }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
