@@ -57,7 +57,16 @@ body {
     radial-gradient(1000px 680px at 88% 3%, var(--site-glow-warm), transparent 50%),
     linear-gradient(180deg, var(--site-bg-grad-start) 0%, var(--site-bg-grad-mid) 55%, var(--site-bg-grad-end) 100%);
   color: var(--site-text);
+  padding-bottom: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: "Exo 2", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+#main,
+.initial-content {
+  flex: 1 0 auto;
 }
 
 body,
@@ -732,7 +741,8 @@ html.animations-off *::after {
 .page__footer {
   position: static;
   float: none;
-  margin-top: 3rem;
+  margin-top: 0;
+  flex-shrink: 0;
   background: color-mix(in srgb, var(--site-bg-elevated) 94%, transparent);
   border-top: 1px solid color-mix(in srgb, var(--site-border) 86%, transparent);
   color: var(--site-text-muted);
@@ -740,7 +750,7 @@ html.animations-off *::after {
 
 .page__footer footer {
   margin-top: 0;
-  padding: 1.3rem 1rem 2rem;
+  padding: 1.15rem 1rem 0.9rem;
   background: transparent;
   border-top: 0;
 }
@@ -816,11 +826,12 @@ html.animations-off *::after {
 }
 
 .page__footer-follow {
-  margin-top: 1rem;
+  margin-top: 0.65rem;
 }
 
 .page__footer-copyright {
-  margin-top: 0.8rem;
+  margin-top: 0.45rem;
+  margin-bottom: 0;
   color: var(--site-text-muted);
 }
 

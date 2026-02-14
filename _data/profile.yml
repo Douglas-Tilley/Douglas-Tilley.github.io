@@ -176,7 +176,7 @@ highlights:
   - label: "Core Theme"
     value: "Multimodal Deep Learning for Human-Robot Interaction"
   - label: "Industry and Applied Work"
-    value: "TinyML, Robotics Simulation, Multimodal Learning, Optimization Wildlife Conservation"
+    value: "TinyML, Robotics Simulation, Multimodal Learning, Optimization, Wildlife Conservation"
 
 current_work:
   - title: "Multimodal Human Activity Recognition"
@@ -290,7 +290,7 @@ fallback_repos:
     status: "Ongoing Personal"
   - name: "HierETransform"
     html_url: "https://github.com/Douglas-Tilley/TJUStudyPipeline"
-    description: "Hierarchical entropy transformer for multimodal sensor processing."
+    description: "Hierarchical transformer for multimodal sensor processing."
     language: "Python"
     stargazers_count: 0
     status: "Ongoing PhD"
